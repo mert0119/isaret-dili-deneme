@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.callbacks import TensorBoard
 
-
+ 
 DATA_PATH = os.path.join('MP_Data') 
 actions = np.array(['merhaba', 'tesekkur', 'normal'])
 no_sequences = 10 
@@ -45,8 +45,9 @@ model.add(Dense(actions.shape[0], activation='softmax'))
 model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
 
-print("Eğitim Başlıyor... Lütfen bekleyin.")
+print("Eğitim Başlıyor... Lütfen bekleyin")
 model.fit(X_train, y_train, epochs=200) 
 
 model.save('hareket_modeli.h5')
+
 print("Eğitim Bitti! Model 'hareket_modeli.h5' olarak kaydedildi.")
